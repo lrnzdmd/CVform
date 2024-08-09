@@ -1,33 +1,177 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './assets/style.css'
+
+import briefcase from "./assets/briefcase-outline.svg"
+import email from "./assets/email-outline.svg"
+import edit from "./assets/file-edit-outline.svg"
+import phone from "./assets/phone-outline.svg"
+import address from "./assets/map-marker.svg"
+import down from "./assets/menu-down-outline.svg"
+import school from "./assets/school-outline.svg"
+import trash from "./assets/trash-can-outline.svg"
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <main>
+    <nav className="sidebar">
+        <div className="resetPrint">
+            <button style={{ backgroundColor: '#c7c7c7' }}>Reset</button>
+            <button style={{ backgroundColor: '#f5f5f5' }}>Save</button>
+        </div>
+
+        <div className="personalDetailsInput">
+            <h2>Personal Details</h2>
+            <form action="inputPersonalDetails" method="get">
+                <label>Full Name</label>
+                <input type="text" name="Full Name" />
+                <label>Email</label>
+                <input type="email" name="Email" />
+                <label>Telephone</label>
+                <input type="tel" name="Telephone" />
+                <label>Address</label>
+                <input type="text" name="Address" />
+            </form>
+        </div>
+
+        <div className="listOpen">
+            <div className="listHeader">
+                <div className="listTitle">
+                    <img src={school} alt="educationicon" />
+                    <h2>name.Education</h2>
+                </div>
+                <img src={down} alt="downicon" />
+            </div>
+            <div className="listContainer">
+                <div className="listElements">
+                    <div className="element">
+                        <div className="cardHead">
+                            <b>schoolName.Bird University</b>
+                            <div className="editDeleteIcons">
+                                <img src={edit} alt="editIcon" />
+                                <img src={trash} alt="trashIcon" />
+                            </div>
+                        </div>
+                        <form action="inputPersonalDetails">
+                            <label>School</label>
+                            <input type="text" name="School" />
+                            <label>Course</label>
+                            <input type="text" name="Course" />
+                            <label>Date From</label>
+                            <input type="date" name="Date From" />
+                            <label>Date To</label>
+                            <input type="date" name="Date To" />
+                            <label>Location</label>
+                            <input type="text" name="Location" />
+                            <button type="submit">Close</button>
+                        </form>
+                    </div>
+
+                    <div className="element">
+                        <div className="cardHead">
+                            <b>schoolName.Bird University</b>
+                            <div className="editDeleteIcons">
+                                <img src={edit} alt="editIcon" />
+                                <img src={trash} alt="trashIcon" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button>+ name.Education</button>
+            </div>
+        </div>
+
+        <div className="listOpen">
+            <div className="listHeader">
+                <div className="listTitle">
+                    <img src={briefcase} alt="educationicon" />
+                    <h2>Experiences</h2>
+                </div>
+                <img src={down} alt="downicon" />
+            </div>
+        </div>
+    </nav>
+
+    <section className="compiledCV">
+        <div className="personalDetails">
+            <h2>name.Larry Bird</h2>
+            <div className="addressPhoneMail">
+                <div className="infoWithIcon">
+                    <img src={email} alt="emailicon" />
+                    <p>mail.larrybird@chirpmail.com</p>
+                </div>
+                <div className="infoWithIcon">
+                    <img src={phone} alt="telephoneicon" />
+                    <p>telephone.+34 123 456 789</p>
+                </div>
+                <div className="infoWithIcon">
+                    <img src={address} alt="addressicon" />
+                    <p>address.My Perch, My Cage</p>
+                </div>
+            </div>
+        </div>
+
+        <div className="section">
+            <h3>sectionname.Education</h3>
+            <div className="experienceElement">
+                <div className="expLeftCol">
+                    <p>startDate.??-??-2017 - endDate.30-07-2020</p>
+                    <p>location.Cartagena, Murcia, ES</p>
+                </div>
+                <div className="expRightCol">
+                    <h4>schoolName.Bird University</h4>
+                    <b>courseName.Master in advanced chirping</b>
+                </div>
+            </div>
+            <div className="experienceElement">
+                <div className="expLeftCol">
+                    <p>startDate.??-??-2017 - endDate.30-07-2020</p>
+                    <p>location.Cartagena, Murcia, ES</p>
+                </div>
+                <div className="expRightCol">
+                    <h4>schoolName.Bird University</h4>
+                    <b>courseName.Master in advanced chirping</b>
+                </div>
+            </div>
+        </div>
+
+        <div className="section">
+            <h3>sectionname.Professional Experience</h3>
+            <div className="experienceElement">
+                <div className="expLeftCol">
+                    <p>startDate.??-??-2015 - endDate.10-02-2024</p>
+                    <p>location.Cartagena, Murcia, ES</p>
+                </div>
+                <div className="expRightCol">
+                    <h4>companyName.Mini cage</h4>
+                    <b>role.Branch director</b>
+                    <p>
+                        description.Primary responsibilities included consuming an array of junk food treats—favorites being
+                        sunflower seeds and sweet snacks—while offering a melodic soundtrack of chirps, whistles, everything
+                        from the comfort of my favourite branch.
+                    </p>
+                </div>
+            </div>
+
+            <div className="experienceElement">
+                <div className="expLeftCol">
+                    <p>startDate.??-??-2015 - endDate.10-02-2024</p>
+                    <p>location.Cartagena, Murcia, ES</p>
+                </div>
+                <div className="expRightCol">
+                    <h4>companyName.Mini cage</h4>
+                    <b>role.Branch director</b>
+                    <p>
+                        description.Primary responsibilities included consuming an array of junk food treats—favorites being
+                        sunflower seeds and sweet snacks—while offering a melodic soundtrack of chirps, whistles, everything
+                        from the comfort of my favourite branch.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
     </>
   )
 }

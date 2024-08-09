@@ -1,0 +1,321 @@
+body {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #d8d8d8;
+}
+
+h1, h2, h3, h4, p, b {
+    margin: 0;
+}
+
+div {
+    scrollbar-width: none;
+    -ms-overflow-style: none; 
+
+   
+    scrollbar-color: transparent transparent;
+}
+
+div::-webkit-scrollbar {
+    display: none; 
+}
+
+main {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.sidebar {
+    
+    display: flex;
+    gap:1em;
+    flex-direction: column;
+    justify-content: center;
+    width: 20%;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.resetPrint {
+    align-self: center;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    width:100%;
+    height: 4em;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.personalDetailsInput {
+    display:flex;
+    flex-direction: column;
+    width:100%;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    
+}
+
+.personalDetailsInput h2 {
+    margin-left:0.6em;
+    margin-top:0.6em;
+    font-size: 1.7em;
+}
+
+form {
+    margin: 1em;
+    margin-top: 1.4em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4em;
+    font-size: 1.2em;
+    font-weight:500;
+}
+
+input {
+    background-color: #d8d8d8;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    height: 1.4em;
+
+}
+
+input[type="date"] {
+    padding:0.25em;
+}
+
+
+.resetPrint button {
+    font-size: 1.4em;
+    font-weight: 500;
+    color: #2c2c2c;
+    font-weight: 600;
+    border-color:#2c2c2c;
+    border-radius: 5px;
+    border-style: solid;
+    width:45%;
+    height: 60%;
+    cursor: pointer;
+}
+
+
+.listOpen {
+    width:100%;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.listOpen button {
+    align-self: center;
+    font-size: 1.4em;
+    font-weight: 500;
+    color: #2c2c2c;
+    font-weight: 500;
+    border-color:#2c2c2c;
+    border-radius: 5px;
+    border-style: solid;
+    width:45%;
+    height: 60%;
+    cursor: pointer;
+    margin-bottom: 0.7em;
+}
+
+.listHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.listTitle {
+    margin: 0.5em 2em 0.5em 1em;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.cardHead {
+    position:relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+.editDeleteIcons {
+    display: flex;
+    gap: 1em;
+}
+
+.element form {
+    position: relative;
+}
+
+.element form button {
+    height:1.8em;
+    margin-top:1.6em;
+    font-size: 1.2em;
+}
+
+.element form::after {
+    content: ''; 
+    position: absolute;
+    width: 160%;
+    left: -30%;
+    bottom: -1.4em;
+    height: 1px; 
+    background-color: #7a7a7a; 
+    display: block;
+}
+
+
+.listOpen img {
+    width: 2.2em;
+    margin-right: 1em;
+}
+
+.listElements {
+    margin:2em 1em 2em 1em;
+    display: flex;
+    flex-direction: column;
+    gap:2em;
+    overflow: scroll;
+    max-height: 30em;
+}
+.listContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.listContainer::before {
+    content: ''; 
+    position: absolute;
+    top: 0.4em;  
+    width: 100%;
+    height: 1px; 
+    background-color: #7a7a7a; 
+    display: block;
+}
+
+.listContainer button {
+    position: relative;
+    height:3em;
+    border-radius: 30px;
+}
+
+.listContainer button::before {
+    content: ''; 
+    position: absolute; 
+    top: -1em; 
+    width: 227%;
+    left: -63.5%;
+    height: 1px; 
+    background-color: #7a7a7a; 
+    display: block;
+}
+
+.cardHead:not(:last-child)::after {
+    content: ''; 
+    position: absolute; 
+    bottom: -1em; 
+    width: 100%;
+    height: 1px; 
+    background-color: #7a7a7a; 
+    display: block; 
+}
+
+
+.editDeleteIcons img {
+    width:1.8em;
+    margin:0;
+    cursor: pointer;
+}
+
+.compiledCV {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #f5f5f5;
+    width:55%;
+}
+
+.personalDetails {
+    background-color: #20293c;
+    color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    padding: 2em;
+    gap:2em;
+}
+
+.personalDetails h2 {
+    font-size: 2em;
+    align-self: center;
+}
+
+.addressPhoneMail {
+    align-self: center;
+    display: flex;
+    gap:1.4em;
+}
+
+.infoWithIcon {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 0.4em;
+    row-gap: 0.1em;
+}
+
+.infoWithIcon img {
+    width: 1.6em;
+}
+
+.infoWithIcon p {
+    font-size: 1.25em;;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    gap:2em;
+    margin-bottom: 2em;
+}
+
+.section h3 {
+    margin-top: 2em;
+    margin-bottom: 1.4em;
+    align-self: center;
+    text-align: center;
+    background-color: #d8d8d8;
+    width:80%;
+    font-size: 1.3em;
+    font-weight: 600;
+    padding-top:0.4em;
+    padding-bottom: 0.8em;
+}
+
+.experienceElement {
+    display:flex;
+    justify-content: center;
+    gap: 10%;
+}
+
+.expRightCol {
+    display:flex;
+    flex-direction: column;
+    gap:0.2em;
+    width: 40%;
+}
+
+.expLeftCol {
+    width:30%;
+    display: flex;
+    flex-direction: column;
+    gap:0.3em;
+}
