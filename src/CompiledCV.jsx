@@ -10,8 +10,8 @@ function CompiledCV(props) {
         <section className="compiledCV">
         <CVHeader cv={props.cv} />
 
-        <CVSection sectionName="Education" list={props.cv.education} />
-        <CVSection sectionName="Professional Experience" list={props.cv.experiences} />
+        <CVSection list={props.cv.education}>Education</CVSection>
+        <CVSection list={props.cv.experiences}>Professional Experience</CVSection>
     </section>
 
         </>

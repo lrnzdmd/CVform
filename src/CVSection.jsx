@@ -1,10 +1,10 @@
 import CVElement from "./CVElement";
 
-function CVSection(props) {
+function CVSection({ children, list}) {
     return (
         <div className="section">
-            <h3>{props.sectionName}</h3>
-            {props.list.map(el => (
+            <h3>{children}</h3>
+            {list.map(el => (
                 <CVElement key={el.id} element={el} />
             ))}
 

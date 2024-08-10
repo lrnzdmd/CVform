@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
+import * as dateFns from 'date-fns';
 
 class Curriculum {
 
@@ -8,18 +9,18 @@ class Curriculum {
                 address = "3rd Perch, Chirpy corner, My Cage 23847" , 
                 education = [new Experience("Feathered Friends Academy",
                                             "Winged Communication Skills",
-                                            new Date("2016-03-03"),
-                                            new Date("2016-07-08"),
+                                            dateFns.format(new Date("2016-03-03"), "MM/yyyy"),
+                                            dateFns.format(new Date("2016-07-08"), "MM/yyyy"),
                                             "Featherburg"),
                             new Experience("Birdsong Institute",
                                             "Advanced Chirping Techniques",
-                                            new Date("2016-01-03"),
-                                            new Date("2019-09-22"),
+                                            dateFns.format(new Date("2016-01-03"), "MM/yyyy"),
+                                            dateFns.format(new Date("2019-02-22"), "MM/yyyy"),
                                             "Phoenix")], 
                 experiences = [new Experience("Chirpy Enterprises",
                                             "Branch Manager",
-                                            new Date("2020-02-11"),
-                                            new Date(),
+                                            dateFns.format(new Date("2020-02-11"), "MM/yyyy"),
+                                            dateFns.format(new Date(), "MM/yyyy"),
                                             "My Cage",
                                             `As the esteemed Branch Manager, I oversee the daily operations 
                                             from my designated perch, ensuring a steady supply of sunflower 
@@ -43,8 +44,8 @@ class Experience {
 
     constructor(name = "" ,
                 role = "" ,
-                startdate = new Date() ,
-                enddate = new Date() ,
+                startdate = dateFns.format(new Date(), "MM/yyyy") ,
+                enddate = dateFns.format(new Date(), "MM/yyyy") ,
                 location = "" ,
                 description = "",
                 id = uuidv4()
@@ -52,8 +53,8 @@ class Experience {
 
         this.name = name;
         this.role = role;
-        this.startDate = startdate;
-        this.endDate = enddate;
+        this.startdate = startdate;
+        this.enddate = enddate;
         this.location = location;
         this.description = description;
         this.id = id;
@@ -62,4 +63,4 @@ class Experience {
 
 
 
-export default Curriculum;
+export {Curriculum, Experience};

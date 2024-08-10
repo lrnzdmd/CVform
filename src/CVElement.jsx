@@ -4,7 +4,7 @@ function CVElement(props) {
     return (
     <div className="experienceElement">
         <div className="expLeftCol">
-            <p>{dateFns.format(props.element.startDate, "MM/yyyy")} - {dateFns.format(props.element.endDate, "MM/yyyy")}</p>
+            <p>{props.element.startdate} - {props.element.enddate}</p>
             <p>{props.element.location}</p>
         </div>
         <div className="expRightCol">

@@ -28,17 +28,13 @@ main {
 }
 
 .sidebar {
-    
-    display: flex;
-    gap:1em;
-    flex-direction: column;
-    justify-content: center;
     width: 20%;
     margin-top: 2em;
     margin-bottom: 2em;
 }
 
 .resetPrint {
+    margin-bottom:1em;
     align-self: center;
     background-color: #f5f5f5;
     border-radius: 5px;
@@ -50,6 +46,7 @@ main {
 }
 
 .personalDetailsInput {
+    margin-bottom:1em;
     display:flex;
     flex-direction: column;
     width:100%;
@@ -103,16 +100,22 @@ input[type="date"] {
 
 
 .listOpen {
+    margin-bottom:1em;
     width:100%;
     background-color: #f5f5f5;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
 }
+.pdffriendly {
+    height:auto;
+    width: 76%;
+
+  }
 
 .listOpen button {
     align-self: center;
-    font-size: 1.4em;
+    font-size: 1.2em;
     font-weight: 500;
     color: #2c2c2c;
     font-weight: 500;
@@ -120,7 +123,6 @@ input[type="date"] {
     border-radius: 5px;
     border-style: solid;
     width:45%;
-    height: 60%;
     cursor: pointer;
     margin-bottom: 0.7em;
 }
@@ -141,6 +143,7 @@ input[type="date"] {
     position:relative;
     display: flex;
     justify-content: space-between;
+    width:100%;
 }
 
 .editDeleteIcons {
@@ -182,6 +185,7 @@ input[type="date"] {
     gap:2em;
     overflow: scroll;
     max-height: 30em;
+    width:80%;
 }
 .listContainer {
     position: relative;
@@ -242,6 +246,7 @@ input[type="date"] {
     justify-content: flex-start;
     background-color: #f5f5f5;
     width:55%;
+    height: fit-content;
 }
 
 .personalDetails {
@@ -318,4 +323,8 @@ input[type="date"] {
     display: flex;
     flex-direction: column;
     gap:0.3em;
+}
+
+.element {
+    width:100%;
 }
