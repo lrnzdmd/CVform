@@ -4,51 +4,31 @@ import email from "./assets/email-outline.svg"
 import phone from "./assets/phone-outline.svg"
 import address from "./assets/map-marker.svg"
 
-function CompiledCV() {
+import CVSection from "./CVSection.jsx";
+
+function CompiledCV(props) {
     return (
         <>
         <section className="compiledCV">
         <div className="personalDetails">
-            <h2>name.Larry Bird</h2>
+            <h2>{props.cv.fullName}</h2>
             <div className="addressPhoneMail">
                 <div className="infoWithIcon">
                     <img src={email} alt="emailicon" />
-                    <p>mail.larrybird@chirpmail.com</p>
+                    <p>{props.cv.eMail}</p>
                 </div>
                 <div className="infoWithIcon">
                     <img src={phone} alt="telephoneicon" />
-                    <p>telephone.+34 123 456 789</p>
+                    <p>{props.cv.telephone}</p>
                 </div>
                 <div className="infoWithIcon">
                     <img src={address} alt="addressicon" />
-                    <p>address.My Perch, My Cage</p>
+                    <p>{props.cv.address}</p>
                 </div>
             </div>
         </div>
 
-        <div className="section">
-            <h3>sectionname.Education</h3>
-            <div className="experienceElement">
-                <div className="expLeftCol">
-                    <p>startDate.??-??-2017 - endDate.30-07-2020</p>
-                    <p>location.Cartagena, Murcia, ES</p>
-                </div>
-                <div className="expRightCol">
-                    <h4>schoolName.Bird University</h4>
-                    <b>courseName.Master in advanced chirping</b>
-                </div>
-            </div>
-            <div className="experienceElement">
-                <div className="expLeftCol">
-                    <p>startDate.??-??-2017 - endDate.30-07-2020</p>
-                    <p>location.Cartagena, Murcia, ES</p>
-                </div>
-                <div className="expRightCol">
-                    <h4>schoolName.Bird University</h4>
-                    <b>courseName.Master in advanced chirping</b>
-                </div>
-            </div>
-        </div>
+        <CVSection sectionName="Education" />
 
         <div className="section">
             <h3>sectionname.Professional Experience</h3>
