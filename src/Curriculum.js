@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid';
+
 class Curriculum {
 
     constructor(fullname = "Larry Bird", 
@@ -32,6 +34,8 @@ class Curriculum {
         this.education = education;
         this.experiences = experiences;
     }
+
+   
 }
 
 
@@ -42,7 +46,8 @@ class Experience {
                 startdate = new Date() ,
                 enddate = new Date() ,
                 location = "" ,
-                description = ""
+                description = "",
+                id = uuidv4()
     ) {
 
         this.name = name;
@@ -51,6 +56,7 @@ class Experience {
         this.endDate = enddate;
         this.location = location;
         this.description = description;
+        this.id = id;
     }
 }
 

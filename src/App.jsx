@@ -15,14 +15,18 @@ function App() {
         setCV(prevCv => ({...prevCv, [name]: value}));
     }
 
+    function resetCV() {
+        setCV(new Curriculum());
+    }
 
+    
 
   return (
     <>
       <main>
-    <Sidebar cv={cv} updateField={updateField} />
-    <CompiledCV cv={cv} />
-</main>
+        <Sidebar cv={cv} updateField={updateField} resetCV={resetCV} />
+        <CompiledCV cv={cv} />
+    </main>
     </>
   )
 }

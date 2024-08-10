@@ -1,4 +1,5 @@
 import "./Sidebar.css";
+import SidebarHeader from "./SidebarHeader";
 
 import briefcase from "./assets/briefcase-outline.svg"
 import edit from "./assets/file-edit-outline.svg"
@@ -6,15 +7,12 @@ import down from "./assets/menu-down-outline.svg"
 import school from "./assets/school-outline.svg"
 import trash from "./assets/trash-can-outline.svg"
 
-function Sidebar() {
+function Sidebar(props) {
 
     return (
         <>
         <nav className="sidebar">
-        <div className="resetPrint">
-            <button style={{ backgroundColor: '#c7c7c7' }}>Reset</button>
-            <button style={{ backgroundColor: '#f5f5f5' }}>Save</button>
-        </div>
+        <SidebarHeader resetCV={props.resetCV}/>
 
         <div className="personalDetailsInput">
             <h2>Personal Details</h2>
