@@ -1,4 +1,4 @@
-import * as dateFns from 'date-fns';
+
 
 function CVElement(props) {
     return (

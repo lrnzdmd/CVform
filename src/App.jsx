@@ -3,7 +3,6 @@ import './assets/style.css';
 import Sidebar from './Sidebar.jsx';
 import CompiledCV from './CompiledCV.jsx';
 import {Curriculum, Experience} from './Curriculum.js';
-import * as dateFns from 'date-fns';
 import { useState } from 'react';
 
 
@@ -33,8 +32,7 @@ function App() {
           if (index !== -1) {
 
             if (name.includes("date")) {
-              const newDate = dateFns.format(new Date(value), "MM/yyyy")
-              console.log(newDate)
+              const newDate = value;
             updatedArray[index] = {
               ...updatedArray[index],
               [name]: newDate
