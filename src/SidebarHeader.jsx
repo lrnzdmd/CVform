@@ -1,39 +1,144 @@
-import html2canvas from 'html2canvas';
-import jsPDF from 'jspdf';
+import './CompiledCV.css'
 import CompiledCV from './CompiledCV';
 import React, { useRef } from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOMServer from 'react-dom/server';
 
 
 function SidebarHeader(props) {
-    const hiddenContainerRef = useRef(null);
+    
 
 
-    function savePdf() {
-        const printCv = (<CompiledCV cv={props.cv}></CompiledCV>)
+    function printCv() {
+const printStyles = `
+        .compiledCV {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #f5f5f5;
+    width:100%;
+    height: fit-content;
+}
 
-        const hiddenContainer = hiddenContainerRef.current;
-        const root = ReactDOM.createRoot(hiddenContainer);
-        root.render(printCv);
+.personalDetails {
+    background-color: #20293c;
+    color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    padding: 2em;
+    gap:2em;
+}
 
-        html2canvas(hiddenContainer).then((canvas) => {
-            const imgdata = canvas.toDataURL("image/jpeg");
-            const pdf = new jsPDF();
-            pdf.addImage(imgdata, "JPEG",0,0);
-            pdf.save("CV.pdf");
+.personalDetails h2 {
+    font-size: 2em;
+    align-self: center;
+}
 
-            root.unmount();
-        }).catch((error) => {
-            console.error("Errore nella generazione del PDF:", error);
-          });
+.addressPhoneMail {
+    align-self: center;
+    display: flex;
+    gap:1.4em;
+}
+
+.infoWithIcon {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 0.4em;
+    row-gap: 0.1em;
+}
+
+.infoWithIcon img {
+    width: 1.6em;
+}
+
+.infoWithIcon p {
+    font-size: 1.25em;;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    gap:2em;
+    margin-bottom: 2em;
+}
+
+.section h3 {
+    margin-top: 2em;
+    margin-bottom: 1.4em;
+    align-self: center;
+    text-align: center;
+    background-color: #d8d8d8;
+    width:80%;
+    font-size: 1.3em;
+    font-weight: 600;
+    padding-top:0.4em;
+    padding-bottom: 0.8em;
+}
+
+.experienceElement {
+    display:flex;
+    justify-content: center;
+    gap: 10%;
+}
+
+.expRightCol {
+    display:flex;
+    flex-direction: column;
+    gap:0.2em;
+    width: 50%;
+}
+
+.expLeftCol {
+    width:30%;
+    display: flex;
+    flex-direction: column;
+    gap:0.3em;
+}
+
+.element {
+    width:100%;
+}
+    `
+
+        const printContent = (
+            <div>
+                <CompiledCV cv={props.cv} />
+            </div>
+        );
+    
+        const printWindow = window.open('', '', 'width=800,height=600');
+        const printDocument = printWindow.document;
+    
+        printDocument.open();
+        printDocument.write(`
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <title>Stampa CV</title>
+                
+                <style>${printStyles}
+                </style>
+            </head>
+            <body>
+                <div id="print-content">${ReactDOMServer.renderToStaticMarkup(printContent)}</div>
+            </body>
+            </html>
+        `);
+        printDocument.close();
+    
+      
+        printWindow.onload = () => {
+            printWindow.print();
+        };
     }
-
 
     return (
         <div className="resetPrint">
             <button style={{ backgroundColor: '#c7c7c7' }} onClick={props.resetCV}>Reset</button>
-            <button style={{ backgroundColor: '#f5f5f5' }} onClick={savePdf}>Save</button>
-            <div ref={hiddenContainerRef} className="pdffriendly" style={{ position: 'absolute', left: '-9999px', top: '-9999px' }}></div>
+            <button style={{ backgroundColor: '#f5f5f5' }} onClick={printCv}>Save</button>
+           
         </div>
     )
 }
