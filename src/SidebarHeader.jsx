@@ -1,22 +1,32 @@
-import './CompiledCV.css'
-import CompiledCV from './CompiledCV';
-import React, { useRef } from 'react';
-import ReactDOMServer from 'react-dom/server';
+
+
 
 
 function SidebarHeader(props) {
     
-
+   
 
     function printCv() {
-const printStyles = `
-        .compiledCV {
-    margin-top: 2em;
-    margin-bottom: 2em;
+        const printWindow = window.open('', '', 'width=800,height=600');
+        printWindow.document.write(`
+            <html>
+            <head>
+                <title>Stampa CV</title>
+                <style>
+                body {
+                margin:0;
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                font-family: Arial, sans-serif;
+            }
+
+                    .compiledCV {
+    
+    
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    background-color: #f5f5f5;
+
     width:100%;
     height: fit-content;
 }
@@ -31,7 +41,7 @@ const printStyles = `
 }
 
 .personalDetails h2 {
-    font-size: 2em;
+    font-size: 2.5em;
     align-self: center;
 }
 
@@ -44,7 +54,7 @@ const printStyles = `
 .infoWithIcon {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
+   
     column-gap: 0.4em;
     row-gap: 0.1em;
 }
@@ -87,7 +97,7 @@ const printStyles = `
     display:flex;
     flex-direction: column;
     gap:0.2em;
-    width: 50%;
+    width: 40%;
 }
 
 .expLeftCol {
@@ -100,45 +110,25 @@ const printStyles = `
 .element {
     width:100%;
 }
-    `
-
-        const printContent = (
-            <div>
-                <CompiledCV cv={props.cv} />
-            </div>
-        );
-    
-        const printWindow = window.open('', '', 'width=800,height=600');
-        const printDocument = printWindow.document;
-    
-        printDocument.open();
-        printDocument.write(`
-            <!DOCTYPE html>
-            <html>
-            <head>
-                <title>Stampa CV</title>
-                
-                <style>${printStyles}
                 </style>
             </head>
             <body>
-                <div id="print-content">${ReactDOMServer.renderToStaticMarkup(printContent)}</div>
+                <div class="compiledCV">
+                    ${document.querySelector('.compiledCV').outerHTML}
+                </div>
             </body>
             </html>
         `);
-        printDocument.close();
-    
-      
-        printWindow.onload = () => {
-            printWindow.print();
-        };
+        printWindow.document.close();
+        printWindow.focus();
+        printWindow.print();
+        printWindow.close();
     }
 
     return (
         <div className="resetPrint">
             <button style={{ backgroundColor: '#c7c7c7' }} onClick={props.resetCV}>Reset</button>
             <button style={{ backgroundColor: '#f5f5f5' }} onClick={printCv}>Save</button>
-           
         </div>
     )
 }
